@@ -110,11 +110,6 @@ let largeTokenMap = {
 Formats `date` with a Moment formatting string, but allow our non-zero areas and special token
 */
 export function formatDate(date, formatStr) {
-  if (formatStr.toUpperCase() === 'WR') {
-    let weekStart = momentExt(date).startOf('isoWeek')
-    let weekEnd = momentExt(date).endOf('isoWeek').subtract(2, 'days')
-    return weekStart.format('MMM D') + ' - ' + weekEnd.format('MMM D')
-  }
   return renderFakeFormatString(
     getParsedFormatString(formatStr).fakeFormatString,
     date
