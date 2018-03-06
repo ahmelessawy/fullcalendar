@@ -1,5 +1,5 @@
 /*!
- * Customized FullCalendar (Extra features) v0.0.0
+ * Customized FullCalendar (Extra features) v0.0.1
  * Docs & License: https://fullcalendar.io/
  * (c) 2018 Ahmed Essawy
  */
@@ -1725,7 +1725,7 @@ exports.default = Interaction;
 /***/ (function(module, exports, __webpack_require__) {
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.version = '0.0.0';
+exports.version = '0.0.1';
 // When introducing internal API incompatibilities (where fullcalendar plugins would break),
 // the minor version of the calendar should be upped (ex: 2.7.2 -> 2.8.0)
 // and the below integer should be incremented.
@@ -4657,6 +4657,11 @@ var largeTokenMap = {
 Formats `date` with a Moment formatting string, but allow our non-zero areas and special token
 */
 function formatDate(date, formatStr) {
+    if (formatStr.toUpperCase() === 'WR') {
+        var weekStart = moment_ext_1.default(date).startOf('isoWeek');
+        var weekEnd = moment_ext_1.default(date).endOf('isoWeek').subtract(2, 'days');
+        return weekStart.format('MMM D') + ' - ' + weekEnd.format('MMM D');
+    }
     return renderFakeFormatString(getParsedFormatString(formatStr).fakeFormatString, date);
 }
 exports.formatDate = formatDate;
