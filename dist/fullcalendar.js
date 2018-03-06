@@ -4657,6 +4657,11 @@ var largeTokenMap = {
 Formats `date` with a Moment formatting string, but allow our non-zero areas and special token
 */
 function formatDate(date, formatStr) {
+    if (formatStr.toUpperCase() === 'WR') {
+        var weekStart = moment_ext_1.default(date).startOf('isoWeek');
+        var weekEnd = moment_ext_1.default(date).endOf('isoWeek').subtract(2, 'days');
+        return weekStart.format('MMM D') + ' - ' + weekEnd.format('MMM D');
+    }
     return renderFakeFormatString(getParsedFormatString(formatStr).fakeFormatString, date);
 }
 exports.formatDate = formatDate;

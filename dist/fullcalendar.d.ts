@@ -455,7 +455,7 @@ declare module 'fullcalendar/UnzonedRange' {
 	    containsDate(date: any): boolean;
 	    constrainDate(date: any): any;
 	    equals(otherRange: any): boolean;
-	    clone(): default;
+	    clone(): Default;
 	    getStart(): any;
 	    getEnd(): any;
 	    as(unit: any): number;
@@ -566,7 +566,7 @@ declare module 'fullcalendar/EventDateProfile' {
 	    end: any;
 	    unzonedRange: any;
 	    constructor(start: any, end: any, calendar: any);
-	    static parse(rawProps: any, source: any): false | default;
+	    static parse(rawProps: any, source: any): false | Default;
 	    static isStandardProp(propName: any): boolean;
 	    isAllDay(): boolean;
 	    buildUnzonedRange(calendar: any): UnzonedRange;
@@ -634,7 +634,7 @@ declare module 'fullcalendar/EventSource' {
 	    allDayDefault: boolean;
 	    eventDataTransform: any;
 	    constructor(calendar: any);
-	    static parse(rawInput: any, calendar: any): false | default;
+	    static parse(rawInput: any, calendar: any): false | Default;
 	    static normalizeId(id: any): string;
 	    fetch(start: any, end: any, timezone: any): void;
 	    removeEventDefsById(eventDefId: any): void;
